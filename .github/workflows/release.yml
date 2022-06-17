@@ -18,30 +18,24 @@ jobs:
           node-version: 16
       - name: Install dependencies
         run: npm install -g semantic-release @semantic-release/git
+      - name: Install dependencies
+        run: sudo apt-get install git -y
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: semantic-release -e @semantic-release/github
-      - name: Docker Release
-        runs-on: ubuntu-20.04
-        steps:
-          - uses: actions/checkout@v2
-            with:
-              fetch-depth: 0
-          - name: Install dependencies
-            run: sudo apt-get install git -y
-          - name: Print Git-tag - Version
-            run: git describe --tags
-          - name: Configure AWS credentials
-            uses: aws-actions/configure-aws-credentials@v1
-            with:
-              aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-              aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-              aws-region: us-east-1
-          - name: Login to Amazon ECR
-            id: login-ecr
-            uses: aws-actions/amazon-ecr-login@v1
-          - name: Build docker image
-            run: docker build -t 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags) .
-          - name: Push docker image
-            run: docker push 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags)
+      - name: Docker Release - Print Git-tag - Version
+        run: git describe --tags
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      - name: Build docker image
+        run: docker build -t 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags) .
+      - name: Push docker image
+        run: docker push 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags)
