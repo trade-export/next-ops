@@ -18,23 +18,14 @@ jobs:
           node-version: 16
       - name: Install dependencies
         run: npm install -g semantic-release @semantic-release/git
+      - name: Install dependencies
+        run: sudo apt-get install git -y
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: semantic-release -e @semantic-release/github
-  
-  docker_release:
-    needs: release
-    name: Docker Release
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Install dependencies
-        run: sudo apt-get install git -y
-      - name: Print Git-tag - Version
-        run: git describe --tags --always
+      - name: Docker Release - Print Git-tag - Version
+        run: git describe --tags
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -45,6 +36,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
       - name: Build docker image
-        run: docker build -t 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags --always) .
+        run: docker build -t 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags) .
       - name: Push docker image
-        run: docker push 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags --always)
+        run: docker push 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags)
