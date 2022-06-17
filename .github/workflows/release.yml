@@ -34,7 +34,7 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get install git -y
       - name: Print Git-tag - Version
-        run: git describe --tags
+        run: git describe --tags --always
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -45,6 +45,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
       - name: Build docker image
-        run: docker build -t 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags) .
+        run: docker build -t 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags --always) .
       - name: Push docker image
-        run: docker push 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags)
+        run: docker push 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags --always)
