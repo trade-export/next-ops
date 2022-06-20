@@ -19,7 +19,7 @@ rules: {
 }
 overrides: [
   {
-    files: ['*.js'],
+    files: ['*.js', '*.json'],
     rules: {
       'no-undef': 'off'
     }
