@@ -36,6 +36,6 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
       - name: Build docker image
-        run: docker build -t 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags) .
+        run: docker build -t 843259194492.dkr.ecr.us-west-2.amazonaws.com/we-graphql-gw:$(git describe --tags) .
       - name: Push docker image
-        run: docker push 843259194492.dkr.ecr.us-east-1.amazonaws.com/trade-export/sem-ver:$(git describe --tags)
+        run: docker push 843259194492.dkr.ecr.us-west-2.amazonaws.com/we-graphql-gw:$(git describe --tags)
