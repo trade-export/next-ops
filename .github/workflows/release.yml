@@ -37,7 +37,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: semantic-release -e @semantic-release/github
 
-jobs:
   deploy:
     name: Deploy
     needs: release
