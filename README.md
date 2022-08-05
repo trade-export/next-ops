@@ -6,32 +6,32 @@ A Next Generation of Continues Integration and Continues Delivery for Trade X. T
 
 ## Development
 
-* All sprints are two weeks long and run from Monday to the following Friday.
-* All sprint development is done in feature branches that get merged back to develop.
+* All sprints are two weeks long and run from Monday to the following Friday
+* All sprint development is done in feature branches that get merged back to develop
 * The develop branch are deployed to the development environment
-* This is environment is dedicated to developers only, so it is not a reliable environment to perform any e2e testings
+* This environment is dedicated to developers only, so it is not a reliable environment to perform any e2e testings
 
 ## QA
 
-* Before the demo on the second Thursday of the sprint (by 5pm EST), development is merged to master branch (release branch)
+* Before the demo, on the second Thursday of the sprint (by 5pm EST), development is merged to main branch (release branch)
 * A latest release is automatically created post a successful PR (Semantic Release)
-* Release is then deployed automatically to QA Env
+* Release is then deployed automatically to QA Environment
 * The team that owns that repo/service is responsible for creating the release (vX.X.X), and therefore confirming that the service is running properly in QA
 * Ticket validation/e2e testing is done in QA
 * Release candidates are indentified and kept ready for the production release
 
 ## Production Release
 
-* QA must sign off on the release before we release to production. Ideally this happens the day before the release. 
-* QA will give a thumbs up in #releases with a link to TestRail including the test cases run to confirm the release is ready. 
-* The dev teams cannot determine if a release is ready.
-* Releases will happen at 8am eastern on the Tuesday after the sprint is over, on a Google Meet. 
+* QA must sign off on the release before we release to production. Ideally this happens the day before the release
+* QA will give a thumbs up in #releases with a link to TestRail including the test cases run to confirm the release is ready
+* The dev teams cannot determine if a release is ready
+* Releases will happen at 8am eastern on the Tuesday after the sprint is over, on a Google Meet 
 * Attendance is required by the following:
      * One member from each team with code going to production
      * DevOps
      * Someone from QA
-* It is the responsibility of each team to confirm their service is up and running in production.
-* Once it’s been determined that everything has been deployed and all migrations have been run, QA will run a set of sanity tests and post the results to #releases with a link to the TestRail tests that were run.
+* It is the responsibility of each team to confirm their service is up and running in production
+* Once it’s been determined that everything has been deployed and all migrations have been run, QA will run a set of sanity tests and post the results to #releases with a link to the TestRail tests that were run
 
 ## Exceptions
 
@@ -42,14 +42,14 @@ A Next Generation of Continues Integration and Continues Delivery for Trade X. T
 
 ## Hot Fixes
 
-* The determination as to whether we make a hotfix must come from a discussion between QA, a product person and a member of the dev team. 
+* The determination as to whether we make a hotfix must come from a discussion between QA, a product person and a member of the dev team 
 * Hot fixes should be branched off of main into a hotfix branch.
 * Hot fix branches will deploy to a hot fix environment (Future state. For now we will need to deploy them to QA)
-* Once a hot fix is verified by QA it will be released to production and the hot fix branch will be merged back into develop. 
+* Once a hot fix is verified by QA it will be released to production and the hot fix branch will be merged back into develop
 
 ## Commit message format for Semantic Release
 
-semantic-release uses the commit messages to determine the type of changes in the codebase. Following formalized conventions for commit messages, semantic-release automatically determines the next semantic version number, generates a changelog and publishes the release.
+semantic-release uses the commit messages to determine the type of changes in the codebase. Following formalized conventions for commit messages, semantic-release automatically determines the next semantic version number, generates a changelog and publishes the release
 
 ## Must be one of the following:
 
