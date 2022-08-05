@@ -51,7 +51,7 @@ A Next Generation of Continues Integration and Continues Delivery for Trade X. T
 
 ## Commit message format for Semantic Release
 
-semantic-release uses the commit messages to determine the type of changes in the codebase. Following formalized conventions for commit messages, semantic-release automatically determines the next semantic version number, generates a changelog and publishes the release
+Semantic-Release uses the commit messages to determine the type of changes in the codebase. Following formalized conventions for commit messages, semantic-release automatically determines the next semantic version number, generates a changelog and publishes the release
 
 ## Must be one of the following:
 
