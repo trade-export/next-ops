@@ -2,6 +2,8 @@
 
 A Next Generation of Continues Integration and Continues Delivery for Trade X. The intent of creating a standardized automated process for releases is to make sure we have transparency in our release process. Strictly following the Semantic Versioning specification and communicating the impact of changes to consumers.
 
+![alt text](./images/nextops-cicd-flow-diagram.jpeg)
+
 ## Development
 
 * All sprints are two weeks long and run from Monday to the following Friday.
