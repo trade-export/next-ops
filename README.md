@@ -16,7 +16,7 @@ A Next Generation of Continues Integration and Continues Delivery for Trade X. T
 * Before the demo on the second Thursday of the sprint (by 5pm EST), development is merged to master branch (release branch)
 * A latest release is automatically created post a successful PR (Semantic Release)
 * Release is then deployed automatically to QA Env
-* The team that owns that repo/service is responsible for creating the release (vX.X.X), and therefore confirming that the service is running properly in PRE
+* The team that owns that repo/service is responsible for creating the release (vX.X.X), and therefore confirming that the service is running properly in QA
 * Ticket validation/e2e testing is done in QA
 * Release candidates are indentified and kept ready for the production release
 
